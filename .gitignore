@@ -1,0 +1,17 @@
+# secrets — never commit
+.dev.vars
+.env
+.env.*
+!.env.example
+*_LOCAL.txt
+*SECRET*.txt
+*KEY*.txt
+*TOKEN*.txt
+*.pem
+*.key
+
+# tooling
+node_modules/
+.wrangler/
+dist/
+.DS_Store

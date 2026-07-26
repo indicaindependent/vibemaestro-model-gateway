@@ -1,0 +1,23 @@
+name = "vibemaestro-model-gateway"
+main = "src/gw-worker.js"
+compatibility_date = "2024-11-01"
+
+[vars]
+GATE_URL = "https://gate.example.com"   # your deployed auth-gate (session /verify)
+AIG_SLUG = "your-gateway-slug"          # your Cloudflare AI Gateway slug
+PAID_DAILY_CAP_USD = "3.0"              # per-user in-worker soft cap
+
+# Workers AI binding (free-tier model fallback)
+[ai]
+binding = "AI"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "vibemaestro"
+database_id = "REPLACE_WITH_YOUR_D1_ID"
+
+# Secrets (wrangler secret put <NAME>):
+#   CF_ACCOUNT_ID           — for AI Gateway URL
+#   DEEPSEEK_API_KEY        — platform key for the paid DeepSeek default (optional)
+#   VM_ANTHROPIC_KEY        — platform Claude key (optional; users may BYO via header)
+#   (optional alerts) SCRAMBLEMEBOT_TOKEN  TELEGRAM_PETE_ID
